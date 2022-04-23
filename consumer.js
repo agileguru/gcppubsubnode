@@ -1,8 +1,11 @@
 require('dotenv').config();
 
 const { PubSub } = require(`@google-cloud/pubsub`);
+const grpc = require('grpc');
 
-const pubsubClient = new PubSub();
+// const pubsubClient = new PubSub();
+const pubsubClient = new PubSub({grpc});
+
 const subscriptionName = 'doItTestTopicConsumer';
 const timeoutMin = 2 * 60 * 1000;
 const topicName = 'doItTestTopic';
